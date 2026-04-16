@@ -1,0 +1,50 @@
+﻿@model OnlineMusic.Models.ViewModels.FeedbackVM
+
+<form method="post">
+    <br />
+    <div class="d-flex justify-content-center">
+        <div class="card shadow-sm w-100">
+            <div class="card-header bg-secondary bg-gradient text-light py-4">
+                <h5 class="text-center text-white mb-0">
+                    Update Feedback form
+                </h5>
+            </div>
+            <div class="card-body">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Id" class="control-label"></label>
+                    <input asp-for="Id" class="form-control" />
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Feedback" class="control-label"></label>
+                    <input asp-for="Feedback" class="form-control" />
+                    <span asp-validation-for="Feedback" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Rating" class="control-label"></label>
+                    <input asp-for="Rating" class="form-control" />
+                    <span asp-validation-for="Rating" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group d-flex justify-content-between">
+
+                    <div class="w-100 d-flex justify-content">
+                        <input type="submit" value="Submit" class="btn btn-primary" />
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

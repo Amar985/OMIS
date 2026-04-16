@@ -1,0 +1,21 @@
+﻿@model int
+
+<div class="container pt-4">
+    <div class="row justify-content-center">
+        <div class="col-12 text-center">
+            <h1 class="text-primary">
+                Order Placed Successfully
+            </h1>
+            <p>Your Order Number is : <strong>@Model</strong></p>
+            <br />
+        </div>
+        <div class="col-12 text-center" style="color: maroon;">
+            <p>Your order has been placed successfully!</p>
+            <p>Kindly post your valuable feedback by clicking on the button below.</p>
+            <br />
+        </div>
+        <div class="col-12 text-center">
+            <a asp-area="Customer" asp-controller="Feedback" asp-action="Create" class="btn btn-primary">Leave Feedback</a>
+        </div>
+    </div>
+</div>

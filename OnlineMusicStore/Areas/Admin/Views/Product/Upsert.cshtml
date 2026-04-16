@@ -1,0 +1,79 @@
+﻿@model ProductVM
+
+
+<div class="card shadow border-0 my-4">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2"> @(Model.Product.Id != 0 ? "Update" : "Create") Product</h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4">
+        <form method="post" class="row" enctype="multipart/form-data">
+            <input asp-for="Product.Id" hidden />
+            <input asp-for="Product.ImageUrl" hidden />
+            <div class="row">
+                <div class="col-10">
+                    <div class="border p-3">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="py-2 col-12">
+                            <label asp-for="Product.InstrumentName" class="form-label">Instrument Name</label>
+                            <input asp-for="Product.InstrumentName" class="form-control" />
+                            <span asp-validation-for="Product.InstrumentName" class="text-danger"></span>
+                        </div>
+                        <div class="py-2 col-12">
+                            <label asp-for="Product.Description" class="form-label">Description</label>
+                            <input asp-for="Product.Description" class="form-control" />
+                            <span asp-validation-for="Product.Description" class="text-danger"></span>
+                        </div>
+                        <div class="py-2 col-12">
+                            <label asp-for="Product.price" class="form-label">Price</label>
+                            <input asp-for="Product.price" class="form-control" />
+                            <span asp-validation-for="Product.price" class="text-danger"></span>
+                        </div>
+                        <div class="py-2 col-12">
+                            <label asp-for="Product.stock_quantity" class="form-label">Stock Quantity</label>
+                            <input asp-for="Product.stock_quantity" class="form-control" />
+                            <span asp-validation-for="Product.stock_quantity" class="text-danger"></span>
+                        </div>
+                        <div class="py-2 col-12">
+                            <label asp-for="Product.CategoryId" class="form-label">Category</label>
+                            <select asp-for="Product.CategoryId" asp-items="@Model.CategoryList" class="form-select">
+                                <option disabled selected>Select Category</option>
+                            </select>
+                            <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
+                        </div>
+                        <div class="py-2 col-12">
+                            <label asp-for="Product.ImageUrl" class="form-label">Product URL</label>
+                            <input type="file" name="file" class="form-control" />
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-md-3">
+                                @if (Model.Product.Id == 0)
+                                {
+                                    <button type="submit" class="btn btn-primary form-control">Create</button>
+                                }
+                                else
+                                {
+                                    <button type="submit" class="btn btn-primary form-control">Update</button>
+                                }
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a asp-controller="Product" asp-action="Index" class="btn btn-outline-secondary form-control">Back</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <img src="@Model.Product.ImageUrl" width="100%" style="border-radius:5px; border:1px solid #999b9b" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
