@@ -11,7 +11,7 @@ namespace OnlineMusicStore.Areas.Customer.Controllers
     public class FeedbackController : Controller
     {
         private readonly HttpClient _httpClient;
-        Uri baseAddress = new Uri("https://localhost:7194/api");
+        Uri baseAddress = new Uri("https://omis-feedback-api.azurewebsites.net/api");
         public FeedbackController()
         {
             _httpClient = new HttpClient();
