@@ -69,6 +69,7 @@ namespace OnlineMusic.DataAccess.DbInitializer
                 }, "Admin@omis#123*").GetAwaiter().GetResult();
 
 
+
                 ApplicationUser user = _db.ApplicationUsers.FirstOrDefault(u => u.Email == "admin@omis.com");
                 _userManager.AddToRoleAsync(user, SD.Role_Admin).GetAwaiter().GetResult();
 
